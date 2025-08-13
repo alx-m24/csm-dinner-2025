@@ -201,12 +201,13 @@ export default {
             const email = formData.get("email")?.toString() || "";
             const diet = formData.get("diet")?.toString() || "";
             const allergies = formData.get("allergies")?.toString() || "";
+            const info = formData.get("info")?.toString() || "";
 
             // Update the registration with additional info
             await env.DB.prepare(
-                "UPDATE registrations SET diet = ?, allergies = ? WHERE email = ?"
+                "UPDATE registrations SET diet = ?, allergies = ?, extra_info = ?, WHERE email = ?"
             )
-                .bind(diet, allergies, email)
+                .bind(diet, allergies, info, email)
                 .run();
 
             return new Response(`Thank you! Your additional information has been saved.`, {
