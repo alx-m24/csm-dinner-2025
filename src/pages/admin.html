@@ -15,14 +15,6 @@
         </tbody>
     </table>
     <script>
-    fetch('/api/guests')
-      .then(res => res.json())
-      .then(data => {
-        const tbody = document.getElementById('guest-list');
-        tbody.innerHTML = data.map(g =>
-          `<tr><td>${g.name}</td><td>${g.email}</td><td>${g.phone}</td></tr>`
-        ).join('');
-      });
     </script>
 </body>
 </html>
