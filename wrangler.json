@@ -1,0 +1,16 @@
+{
+  "compatibility_date": "2025-04-01",
+  "main": "src/index.ts",
+  "name": "csm-dinner-2025",
+  "upload_source_maps": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "f06f147d-2351-46a6-90c5-818798233bf0",
+      "database_name": "d1-confirme-invites-database"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
