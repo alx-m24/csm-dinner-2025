@@ -10,8 +10,28 @@ const homeHtml = `<!DOCTYPE html>
         <input name="name" placeholder="Full Name" required>
         <input name="email" type="email" placeholder="Email" required>
         <input name="phone" placeholder="Phone" required>
+
+        <label>
+            <input type="checkbox" name="admin" id="adminToggle"> Log in as admin
+        </label>
+
+        <!-- Password field hidden by default -->
+        <div id="passwordField" style="display:none;">
+            <input type="password" name="adminPassword" placeholder="Admin Password">
+        </div>
+
         <button type="submit">Continue</button>
     </form>
+
+    <script>
+    const toggle = document.getElementById('adminToggle');
+    const passwordField = document.getElementById('passwordField');
+
+    toggle.addEventListener('change', () => {
+        passwordField.style.display = toggle.checked ? 'block' : 'none';
+    });
+    </script>
+
 </body>
 </html>
 `;
@@ -50,6 +70,23 @@ export default {
             const name = formData.get("name")?.toString() || "";
             const email = formData.get("email")?.toString() || "";
             const phone = formData.get("phone")?.toString() || "";
+            const isAdmin = formData.get("admin") === "on";
+
+            if (isAdmin) {
+                const adminPassword = formData.get("adminPassword")?.toString() || "";
+                const correctPassword = "SuperSecretPassword1234"; // Replace with a secure password
+
+                if (adminPassword !== correctPassword) {
+                    return new Response("Incorrect admin password!", {
+                        headers: { "Content-Type": "text/plain" },
+                    });
+                }
+
+                // Admin logic here
+                return new Response("Welcome, admin!", {
+                    headers: { "Content-Type": "text/plain" },
+                });
+            }
 
             const existing = await env.DB.prepare(
                 "SELECT id FROM registrations WHERE email = ?"
