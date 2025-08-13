@@ -3,24 +3,129 @@ const homeHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Dinner Registration</title>
+    <link rel="icon" type="image/png" href="pages/img/csm.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <!-- Make sure you have this in <head> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Base body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            color: #d4af37;
+            background-color: #000;
+            background-image: radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 60%), radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.08), transparent 60%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Headings */
+        h1 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-family: 'Cinzel', serif;
+            color: #bbb;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Optional: faint gold gradient overlay for depth */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.1), transparent 70%), radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Center the form container */
+        /* Form container adjusted */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* shorter, so it doesn’t stretch too much vertically */
+            padding: 2% 5%;
+            gap: 1rem; /* spacing between inputs/buttons */
+            box-sizing: border-box;
+        }
+
+        /* Style input fields and button */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        button[type="submit"] {
+            width: 90%;
+            max-width: 400px;
+            margin: 1% 0; /* smaller vertical spacing */
+            padding: 2.5%; /* keep input height reasonable */
+            border: 2px solid #d4af37;
+            border-radius: 6px;
+            background-color: #000;
+            color: #d4af37;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Add focus glow */
+        input:focus,
+        button:focus {
+            box-shadow: 0 0 8px #d4af37;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            accent-color: #d4af37;
+            box-shadow: 0 0 8px #d4af37;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+    </style>
 </head>
 <body>
-    <h1>Register for the Dinner</h1>
+    <h1>Confirm Your Presence</h1>
+    <h2>Upper's End of Year Dinner Party</h2>
+    <h2>CSM - 2025</h2>
     <form action="/register" method="POST">
-        <input name="name" placeholder="Full Name" required>
-        <input name="email" type="email" placeholder="Email" required>
-        <input name="phone" placeholder="Phone" required>
+        <div class="form-container">
+            <input name="name" type="text" placeholder="Full Name" required>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="phone" type="tel" placeholder="Phone" required>
 
-        <label>
-            <input type="checkbox" name="admin" id="adminToggle"> Log in as admin
-        </label>
+            <label>
+                <input type="checkbox" name="admin" id="adminToggle"> Log in as admin
+            </label>
 
-        <!-- Password field hidden by default -->
-        <div id="passwordField" style="display:none;">
-            <input type="password" name="adminPassword" placeholder="Admin Password">
+            <!-- Password field hidden by default -->
+            <div id="passwordField" style="display:none;">
+                <p></p>
+                <input type="password" name="adminPassword" placeholder="Admin Password">
+            </div>
+
+            <p></p><p></p>
+            <button type="submit">Continue</button>
         </div>
-
-        <button type="submit">Continue</button>
     </form>
 
     <script>
@@ -34,6 +139,7 @@ const homeHtml = `<!DOCTYPE html>
 
 </body>
 </html>
+
 `;
 
 const additionalInfoHtml = `<!DOCTYPE html>
@@ -41,14 +147,115 @@ const additionalInfoHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Additional Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="pages/img/csm.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Base body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            color: #d4af37;
+            background-color: #000;
+            background-image: radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 60%), radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.08), transparent 60%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Headings */
+        h1 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-family: 'Cinzel', serif;
+            color: #bbb;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Optional: faint gold gradient overlay for depth */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.1), transparent 70%), radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Center the form container */
+        /* Form container adjusted */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* shorter, so it doesn’t stretch too much vertically */
+            padding: 2% 5%;
+            gap: 1rem; /* spacing between inputs/buttons */
+            box-sizing: border-box;
+        }
+
+        /* Style input fields and button */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        button[type="submit"] {
+            width: 90%;
+            max-width: 400px;
+            margin: 1% 0; /* smaller vertical spacing */
+            padding: 2.5%; /* keep input height reasonable */
+            border: 2px solid #d4af37;
+            border-radius: 6px;
+            background-color: #000;
+            color: #d4af37;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Add focus glow */
+        input:focus,
+        button:focus {
+            box-shadow: 0 0 8px #d4af37;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            accent-color: #d4af37;
+            box-shadow: 0 0 8px #d4af37;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+    </style>
 </head>
 <body>
     <h1>Additional Information</h1>
     <form action="/additional" method="POST">
-        <input name="email" type="hidden" value=""> <!-- We'll fill this dynamically -->
-        <input name="diet" placeholder="Dietary Restrictions">
-        <input name="allergies" placeholder="Allergies">
-        <button type="submit">Submit</button>
+        <div class="form-container">
+            <input name="email" type="hidden" value=""> <!-- We'll fill this dynamically -->
+            <input name="diet" type="text" placeholder="Dietary Restrictions">
+            <input name="allergies" type="text" placeholder="Allergies">
+            <input name="info" type="text" placeholder="Anything else we should know...">
+            <button type="submit">Submit</button>
+        </div>
     </form>
 </body>
 </html>
@@ -59,6 +266,8 @@ const adminHTML = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Registrations</title>
+    <link rel="icon" type="image/png" href="pages/img/csm.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <style>
         table {
             border-collapse: collapse;
@@ -72,12 +281,98 @@ const adminHTML = `<!DOCTYPE html>
             text-align: left;
         }
 
-        th {
-            background-color: #eee;
+        /* Base body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            color: #d4af37;
+            background-color: #000;
+            background-image: radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 60%), radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.08), transparent 60%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
+        /* Headings */
         h1 {
             text-align: center;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-family: 'Cinzel', serif;
+            color: #bbb;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Optional: faint gold gradient overlay for depth */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.1), transparent 70%), radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Center the form container */
+        /* Form container adjusted */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* shorter, so it doesn’t stretch too much vertically */
+            padding: 2% 5%;
+            gap: 1rem; /* spacing between inputs/buttons */
+            box-sizing: border-box;
+        }
+
+        /* Style input fields and button */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        button[type="submit"] {
+            width: 90%;
+            max-width: 400px;
+            margin: 1% 0; /* smaller vertical spacing */
+            padding: 2.5%; /* keep input height reasonable */
+            border: 2px solid #d4af37;
+            border-radius: 6px;
+            background-color: #000;
+            color: #d4af37;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Add focus glow */
+        input:focus,
+        button:focus {
+            box-shadow: 0 0 8px #d4af37;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            accent-color: #d4af37;
+            box-shadow: 0 0 8px #d4af37;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            transform: scale(1.5);
         }
     </style>
 </head>
