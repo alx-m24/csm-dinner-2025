@@ -500,7 +500,7 @@ export default {
 
             // Update the registration with additional info
             await env.DB.prepare(
-                "UPDATE registrations SET diet = ?, allergies = ?, extra_info = ?, WHERE email = ?"
+                "UPDATE registrations SET diet = ?, allergies = ?, extra_info = ? WHERE email = ?"
             )
                 .bind(diet, allergies, info, email)
                 .run();
