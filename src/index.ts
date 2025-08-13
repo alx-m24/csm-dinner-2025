@@ -3,7 +3,7 @@ const homeHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Dinner Confirmation</title>
-    <link rel="icon" type="image/png" href="https://tinyurl.com/3rnepj4r">
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtsbmO4_EScCaG_9c3V_MncTj4Gs7I-ZEh6g&s">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <!-- Make sure you have this in <head> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
