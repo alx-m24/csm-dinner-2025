@@ -54,6 +54,59 @@ const additionalInfoHtml = `<!DOCTYPE html>
 </html>
 `;
 
+const adminHTML = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registrations</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Registrations</h1>
+    <p style="text-align:center;">Total registrations: {{total}}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Diet</th>
+                <th>Allergies</th>
+                <th>Extra Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{rows}}
+        </tbody>
+    </table>
+</body>
+</html>
+
+`;
+
+const ADMIN_PASSWORD = "SuperSecretPassword1234";
+
 export default {
     async fetch(request: Request, env: Env) {
         const url = new URL(request.url);
@@ -74,18 +127,41 @@ export default {
 
             if (isAdmin) {
                 const adminPassword = formData.get("adminPassword")?.toString() || "";
-                const correctPassword = "SuperSecretPassword1234"; // Replace with a secure password
 
-                if (adminPassword !== correctPassword) {
+                if (adminPassword !== ADMIN_PASSWORD) {
                     return new Response("Incorrect admin password!", {
                         headers: { "Content-Type": "text/plain" },
                     });
                 }
 
-                // Admin logic here
-                return new Response("Welcome, admin!", {
-                    headers: { "Content-Type": "text/plain" },
+                // Get list of all registrations
+                // Fetch all registrations
+                const registrationsResult = await env.DB.prepare("SELECT * FROM registrations").all();
+                const rows = registrationsResult.results.map(r => `
+                    <tr>
+                        <td>${r.id}</td>
+                        <td>${r.name}</td>
+                        <td>${r.email}</td>
+                        <td>${r.phone}</td>
+                        <td>${r.diet || ""}</td>
+                        <td>${r.allergies || ""}</td>
+                        <td>${r.extra_info || ""}</td>
+                    </tr>
+                    `).join("\n");
+
+                // Total count
+                const total = registrationsResult.results.length;
+
+                // Replace placeholders in HTML
+                const filledHtml = adminHTML
+                    .replace("{{rows}}", rows)
+                    .replace("{{total}}", total.toString());
+
+                // Return response
+                return new Response(filledHtml, {
+                    headers: { "Content-Type": "text/html;charset=UTF-8" },
                 });
+
             }
 
             const existing = await env.DB.prepare(

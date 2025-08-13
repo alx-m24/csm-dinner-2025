@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registrations</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Registrations</h1>
+    <p style="text-align:center;">Total registrations: {{total}}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Diet</th>
+                <th>Allergies</th>
+                <th>Extra Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{rows}}
+        </tbody>
+    </table>
+</body>
+</html>
