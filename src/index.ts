@@ -3,7 +3,7 @@ const homeHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Dinner Confirmation</title>
-    <link rel="icon" type="image/png" href="pages/img/csm.png">
+    <link rel="icon" type="image/png" href="img/csm.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <!-- Make sure you have this in <head> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
