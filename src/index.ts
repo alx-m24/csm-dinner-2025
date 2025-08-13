@@ -2,7 +2,7 @@ const homeHtml = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dinner Registration</title>
+    <title>Dinner Confirmation</title>
     <link rel="icon" type="image/png" href="pages/img/csm.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <!-- Make sure you have this in <head> -->
@@ -265,7 +265,7 @@ const adminHTML = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Registrations</title>
+    <title>Confirmations</title>
     <link rel="icon" type="image/png" href="pages/img/csm.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -377,8 +377,8 @@ const adminHTML = `<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <h1>All Registrations</h1>
-    <p style="text-align:center;">Total registrations: {{total}}</p>
+    <h1>All Confirmations</h1>
+    <p style="text-align:center;">Total Confirmations: {{total}}</p>
     <table>
         <thead>
             <tr>
