@@ -1,6 +1,4 @@
-export async function renderHtml(path: string) {
-    const file = await import(`../pages/${path}?raw`);
-    return new Response(file.default, {
-        headers: { "Content-Type": "text/html;charset=UTF-8" },
-    });
+export async function renderHtml(fileName: string) {
+    const file = await import(`../pages/${fileName}?raw`);
+    return file.default;
 }
