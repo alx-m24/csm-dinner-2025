@@ -3,7 +3,7 @@ const homeHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Dinner Confirmation</title>
-    <link rel="icon" type="image/png" href="https://tinyurl.com/395ap7tm">
+    <link rel="icon" type="image/png" href="https://tinyurl.com/3rnepj4r">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <!-- Make sure you have this in <head> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +148,7 @@ const additionalInfoHtml = `<!DOCTYPE html>
     <meta charset="UTF-8">
     <title>Additional Info</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://tinyurl.com/395ap7tm">
+    <link rel="icon" type="image/png" href="https://tinyurl.com/3rnepj4r">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Base body styling */
@@ -266,7 +266,7 @@ const adminHTML = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Confirmations</title>
-    <link rel="icon" type="image/png" href="https://tinyurl.com/395ap7tm">
+    <link rel="icon" type="image/png" href="https://tinyurl.com/3rnepj4r">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <style>
         table {
