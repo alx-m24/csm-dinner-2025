@@ -114,7 +114,7 @@ const homeHtml = `<!DOCTYPE html>
             <input name="phone" type="tel" placeholder="Phone" required>
 
             <label>
-                <input type="checkbox" name="Attending" id="AttendingToggle" /> I will be present to the dinner
+                <input type="checkbox" name="attending" id="AttendingToggle" /> I will be present to the dinner
             </label>
 
             <p/>
@@ -135,7 +135,6 @@ const homeHtml = `<!DOCTYPE html>
     </form>
 
     <script>
-        const willAttend = document.getElementById('AttendingToggle');
         const toggle = document.getElementById('adminToggle');
         const passwordField = document.getElementById('passwordField');
 
@@ -425,7 +424,7 @@ export default {
             const email = formData.get("email")?.toString() || "";
             const phone = formData.get("phone")?.toString() || "";
             const isAdmin = formData.get("admin") === "on";
-            const willAttend = formData.get("Attending") === "on";
+            const willAttend = formData.get("attending") === "on";
 
             if (isAdmin) {
                 const adminPassword = formData.get("adminPassword")?.toString() || "";
