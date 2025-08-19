@@ -1,4 +1,4 @@
-const homeHtml = `<!DOCTYPE html>
+﻿const homeHtml = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -61,7 +61,7 @@ const homeHtml = `<!DOCTYPE html>
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 80vh; /* shorter, so it doesn�t stretch too much vertically */
+            min-height: 80vh; /* shorter, so it doesn’t stretch too much vertically */
             padding: 2% 5%;
             gap: 1rem; /* spacing between inputs/buttons */
             box-sizing: border-box;
@@ -209,7 +209,7 @@ const additionalInfoHtml = `<!DOCTYPE html>
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 80vh; /* shorter, so it doesn�t stretch too much vertically */
+            min-height: 80vh; /* shorter, so it doesn’t stretch too much vertically */
             padding: 2% 5%;
             gap: 1rem; /* spacing between inputs/buttons */
             box-sizing: border-box;
@@ -339,7 +339,7 @@ const adminHTML = `<!DOCTYPE html>
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 80vh; /* shorter, so it doesn�t stretch too much vertically */
+            min-height: 80vh; /* shorter, so it doesn’t stretch too much vertically */
             padding: 2% 5%;
             gap: 1rem; /* spacing between inputs/buttons */
             box-sizing: border-box;
@@ -465,9 +465,12 @@ export default {
 
             }
 
-            if (!willAttend) return new Response(`Thank you for using my website.`, {
-                headers: { "Content-Type": "text/plain" },
-            });
+            if (!willAttend) {
+                return new Response("Aww, you won’t be joining us… we’re a little sad now 😢", {
+                    headers: { "Content-Type": "text/plain" },
+                });
+            }
+
 
             const existing = await env.DB.prepare(
                 "SELECT id FROM registrations WHERE email = ?"
