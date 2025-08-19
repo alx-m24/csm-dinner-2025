@@ -114,6 +114,12 @@
             <input name="phone" type="tel" placeholder="Phone" required>
 
             <label>
+                <input type="checkbox" name="Attending" id="AttendingToggle" /> I will be present to the dinner
+            </label>
+
+            <p/>
+
+            <label>
                 <input type="checkbox" name="admin" id="adminToggle"> Log in as admin
             </label>
 
@@ -123,18 +129,19 @@
                 <input type="password" name="adminPassword" placeholder="Admin Password">
             </div>
 
-            <p></p><p></p>
+            <p></p>
             <button type="submit">Continue</button>
         </div>
     </form>
 
     <script>
-    const toggle = document.getElementById('adminToggle');
-    const passwordField = document.getElementById('passwordField');
+        const willAttend = document.getElementById('AttendingToggle');
+        const toggle = document.getElementById('adminToggle');
+        const passwordField = document.getElementById('passwordField');
 
-    toggle.addEventListener('change', () => {
-        passwordField.style.display = toggle.checked ? 'block' : 'none';
-    });
+        toggle.addEventListener('change', () => {
+            passwordField.style.display = toggle.checked ? 'block' : 'none';
+        });
     </script>
 
 </body>

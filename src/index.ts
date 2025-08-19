@@ -2,8 +2,8 @@ const homeHtml = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dinner Confirmation</title>
-    <link rel="icon" type="image/png" href="https://tinyurl.com/3rnepj4r">
+    <title>Dinner Registration</title>
+    <link rel="icon" type="image/png" href="img/csm.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <!-- Make sure you have this in <head> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,6 +114,12 @@ const homeHtml = `<!DOCTYPE html>
             <input name="phone" type="tel" placeholder="Phone" required>
 
             <label>
+                <input type="checkbox" name="Attending" id="AttendingToggle" /> I will be present to the dinner
+            </label>
+
+            <p/>
+
+            <label>
                 <input type="checkbox" name="admin" id="adminToggle"> Log in as admin
             </label>
 
@@ -123,23 +129,23 @@ const homeHtml = `<!DOCTYPE html>
                 <input type="password" name="adminPassword" placeholder="Admin Password">
             </div>
 
-            <p></p><p></p>
+            <p></p>
             <button type="submit">Continue</button>
         </div>
     </form>
 
     <script>
-    const toggle = document.getElementById('adminToggle');
-    const passwordField = document.getElementById('passwordField');
+        const willAttend = document.getElementById('AttendingToggle');
+        const toggle = document.getElementById('adminToggle');
+        const passwordField = document.getElementById('passwordField');
 
-    toggle.addEventListener('change', () => {
-        passwordField.style.display = toggle.checked ? 'block' : 'none';
-    });
+        toggle.addEventListener('change', () => {
+            passwordField.style.display = toggle.checked ? 'block' : 'none';
+        });
     </script>
 
 </body>
 </html>
-
 `;
 
 const additionalInfoHtml = `<!DOCTYPE html>
@@ -419,6 +425,7 @@ export default {
             const email = formData.get("email")?.toString() || "";
             const phone = formData.get("phone")?.toString() || "";
             const isAdmin = formData.get("admin") === "on";
+            const willAttend = formData.get("Attending") === "on";
 
             if (isAdmin) {
                 const adminPassword = formData.get("adminPassword")?.toString() || "";
@@ -458,6 +465,10 @@ export default {
                 });
 
             }
+
+            if (!willAttend) return new Response(`Thank you for using my website.`, {
+                headers: { "Content-Type": "text/plain" },
+            });
 
             const existing = await env.DB.prepare(
                 "SELECT id FROM registrations WHERE email = ?"
