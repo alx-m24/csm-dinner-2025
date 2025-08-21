@@ -466,7 +466,7 @@ export default {
             }
 
             if (!willAttend) {
-                return new Response("Aww, you won’t be joining us… we’re a little sad now 😢", {
+                return new Response("Aww, you will not be joining us we are a little sad now", {
                     headers: { "Content-Type": "text/plain" },
                 });
             }
