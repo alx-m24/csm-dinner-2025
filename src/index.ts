@@ -438,9 +438,9 @@ export default {
                 // Get list of all registrations
                 // Fetch all registrations
                 const registrationsResult = await env.DB.prepare("SELECT * FROM registrations").all();
-                const rows = registrationsResult.results.map(r => `
+                const rows = registrationsResult.results.map((r, i) => `
                     <tr>
-                        <td>${r.id}</td>
+                        <td>${i + 1}</td>
                         <td>${r.name}</td>
                         <td>${r.email}</td>
                         <td>${r.phone}</td>
